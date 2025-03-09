@@ -1,2 +1,77 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+#include <stdio.h>
+
+
+int main() {
+      int Pin_code=12345,Enter_code,Option,Deposit_amount;
+      int Current_balance=100,Withdraw_amount,count=0;
+    
+      printf("Welcome to ATM\n");
+    while(count<5){ 
+       printf("\nEnter pin_code:");
+       scanf("%d", &Enter_code);
+       count++;
+      
+      if(Enter_code!=Pin_code){
+           printf("\nSorry,Wrong PIN_CODE\n");
+           printf("you have %d attemts left\n",5-count);
+           printf("PLEASE TRY AGAIN !\n");
+           if(count==5){
+              printf("you have reached maximum attempts\n");
+              printf("Please restart the program !");
+              return 0;
+           }
+          
+        }   
+        else{
+          printf("\nWelcome to your bank account !\n");
+          break ;
+        }
+      }  
+     
+     
+     
+     do{
+            printf("\nPlease choose the options given below:\n");
+            printf("1.Current balance\n");
+            printf("2.Deposit amount\n");
+            printf("3.Withdraw amount\n");
+            printf("4.Exit\n");
+            printf("\noption:");
+            scanf("%d",&Option);
+     
+     
+           if(Option==1){
+           printf("your current balance :NPR %d ",Current_balance);
+           }
+           else if(Option==2){
+             printf("Enter deposit amount:");
+             scanf("%d",&Deposit_amount);
+             
+             Current_balance=Current_balance+Deposit_amount;
+             
+             printf("your current balance is:NPR %d",Current_balance);
+           }
+           else if(Option==3){
+             printf("Enter withdraw amount:");
+             scanf("%d", &Withdraw_amount);
+             
+             
+            
+             if(Withdraw_amount<Current_balance){
+                 
+                 Current_balance=Current_balance-Withdraw_amount;
+                 
+                 printf("Your current balance :NPR %d",Current_balance);
+                }
+             else{
+                 printf("insufficient balance !");
+                }
+           }
+       }while(Option!=4); 
+         printf("Thank you !");
+    
+
+  return 0;
+}
+
+
